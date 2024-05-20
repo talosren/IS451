@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body,
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+
+        .topmost-text {
+            font-size: 48px;
+            text-align: center;
+            transition: all 0.5s ease;
+            z-index: 2;
+            position: relative;
+            color: black;
+            padding: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-block;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+
+        .header {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+            transition: all 0.5s ease;
+            z-index: 2;
+            position: relative;
+            background-color: white;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
+        .header a:hover {
+            color: #333333;
+            /* Change link color on hover */
+        }
+
+        .separator {
+            width: 100%;
+            height: 5px;
+            background-color: black;
+            z-index: 2;
+            position: relative;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .box {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .box img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .text-box {
+            text-align: left;
+            background-color: #f0f0f0;
+            height: auto;
+        }
+
+        /* Hover effect for bold text */
+        .text-box a:hover,
+        .text-box b:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topmost-text">Paul Lazarte's About Me</div>
+    <div class="header">
+        <a href="index.html" id="home-link" class="active">Home</a>
+        <a href="content.html" id="about-link">About Me</a> <!-- Link to the "About Me" page -->
+    </div>
+    <div class="separator"></div>
+
+    <div class="container">
+        <div class="box">
+            <img src="picture.jpeg" alt="Your Image" id="image" onclick="changeImage()">
+        </div>
+        <div class="box text-box">
+            <div style="display: flex; align-items: center;">
+                <h1 style="font-size: 42px; margin: 0;">ABOUT</h1>
+                <a href="https://www.linkedin.com/in/paul-lazarte/" target="_blank">
+                    <img src="linkedin.png" alt="LinkedIn Icon" style="width: 50px; height: auto; margin-left: 10px;">
+                </a>
+            </div>
+            <p style="font-size: 24px;">I'm currently building a personal CRM for networking specifically tailored to
+                college students pursuing banking!</p>
+            <p style="font-size: 24px;">However, I'm recruiting for Summer Analyst roles for banking and pursue my
+                coding interests as a hobby and QOL.</p>
+            <h1 style="font-size: 42px;">INTERESTS</h1>
+            <ul style="font-size: 24px; list-style-type: disc;">
+                <li>Motorcycles</li>
+                <p style="font-size: 18px; margin-left: 20px;">I'm working on obtaining my license by the end of the
+                    summer!</p>
+                <p style="font-size: 18px; margin-left: 20px;">Dream Bike: <a
+                        href="https://www.ducati.com/us/en/bikes/panigale/panigale-v4-r" target="_blank"
+                        style="color: black; text-decoration: none; font-weight: bold;">Ducati Panigale V4R</a></p>
+
+                <li>Fixed Gear Bikes</li>
+                <p style="font-size: 18px; margin-left: 20px;">Working on properly skidding! I still have my brakes on
+                    unfortunately.</p>
+                <p style="font-size: 18px; margin-left: 20px;">Current Bike: <a
+                        href="https://www.bikesdirect.com/products/mercier/kilott.htm" target="_blank"
+                        style="color: black; text-decoration: none; font-weight: bold;">Mercier Kilo TT [BASE]</a></p>
+                <p style="font-size: 18px; margin-left: 20px;">Dream Bike: <a
+                        href="https://www.reddit.com/r/FixedGearBicycle/comments/7sryle/best_engine_11_sprinter/"
+                        target="_blank" style="color: black; text-decoration: none; font-weight: bold;">Pink Engine 11
+                        Sprinter [FRAME]</a></p>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Get the current page URL
+        const currentPage = window.location.href;
+
+        // Get the home and about links
+        const homeLink = document.getElementById('home-link');
+        const aboutLink = document.getElementById('about-link');
+
+        // Check if the current page URL contains 'content.html'
+        if (currentPage.includes('content.html')) {
+            // If the current page is 'content.html', add 'active' class to the about link
+            aboutLink.classList.add('active');
+            // Remove 'active' class from the home link
+            homeLink.classList.remove('active');
+        } else {
+            // If the current page is not 'content.html', add 'active' class to the home link
+            homeLink.classList.add('active');
+            // Remove 'active' class from the about link
+            aboutLink.classList.remove('active');
+        }
+        function changeImage() {
+            var img = document.getElementById('image');
+            if (img.src.includes('picture.jpeg')) {
+                img.src = 'back.jpg'; // Change to the second image
+            } else {
+                img.src = 'picture.jpeg'; // Change back to the first image
+            }
+        }
+    </script>
+
+</body>
+
+</html>
